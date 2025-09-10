@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "postinstall": "patch-package",
+    "postinstall": "node -e \"let myLibAsDep = !require('fs').existsSync('.git'); if (!myLibAsDep) process.exit(1);\" ||patch-package",
     "data:debug": "tsx generator/debug.ts",
     "data:generate": "tsx generator/index.ts",
     "data:pack": "tsx generator/pack.ts"
