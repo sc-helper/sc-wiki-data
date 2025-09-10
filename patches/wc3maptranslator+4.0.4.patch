@@ -1,0 +1,18 @@
+diff --git a/node_modules/wc3maptranslator/dist/translators/ObjectsTranslator.js b/node_modules/wc3maptranslator/dist/translators/ObjectsTranslator.js
+index 0e705d8..dd72410 100644
+--- a/node_modules/wc3maptranslator/dist/translators/ObjectsTranslator.js
++++ b/node_modules/wc3maptranslator/dist/translators/ObjectsTranslator.js
+@@ -142,7 +142,12 @@ class ObjectsTranslator {
+             const numTableModifications = outBufferToJSON.readInt();
+             for (let i = 0; i < numTableModifications; i++) {
+                 const objectDefinition = []; // object definition will store one or more modification objects
+-                const originalId = outBufferToJSON.readChars(4), customId = outBufferToJSON.readChars(4), modificationCount = outBufferToJSON.readInt();
++                const originalId = outBufferToJSON.readChars(4)
++                const customId = outBufferToJSON.readChars(4)
++                if (fileVersion >= 3) {
++                    outBufferToJSON.readChars(8)
++                }
++                const modificationCount = outBufferToJSON.readInt();
+                 for (let j = 0; j < modificationCount; j++) {
+                     const modification = {
+                         id: '',

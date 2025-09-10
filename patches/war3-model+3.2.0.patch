@@ -1,0 +1,14 @@
+diff --git a/node_modules/war3-model/package.json b/node_modules/war3-model/package.json
+index 1777513..ff95c20 100644
+--- a/node_modules/war3-model/package.json
++++ b/node_modules/war3-model/package.json
+@@ -71,7 +71,8 @@
+   "exports": {
+     ".": {
+       "require": "./dist/war3-model.js",
+-      "import": "./dist/es/war3-model.js"
++      "import": "./dist/es/war3-model.js",
++      "types": "./dist/war3-model.d.ts"
+     },
+     "./dist/": "./dist/"
+   }
